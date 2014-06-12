@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
+ruby '2.0.0'
 
 # PostgreSQL driver
 gem 'pg'
@@ -17,6 +17,11 @@ gem 'activerecord'
 gem 'rake'
 
 gem 'shotgun'
+
+# Added
+group :development do
+  gem 'sinatra-asset-pipeline'
+end
 
 group :test do
   gem 'shoulda-matchers'

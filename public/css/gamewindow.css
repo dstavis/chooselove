@@ -1,0 +1,23 @@
+#game {
+  border: 1px solid #cacaca;
+  border-radius: 5px;
+
+  position: relative;
+  width: 620px;
+  height: 400px;
+
+  background-color: white;
+}
+
+.box {
+  border: 2px solid #cacaca;
+  border-radius: 5px;
+
+  margin: 0 auto;
+  margin-top: 20%;
+
+  height: 100px;
+  width: 500px;
+
+  padding: 5px;
+}

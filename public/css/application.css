@@ -1,0 +1,17 @@
+@font-face {
+    font-family:"PressStart";
+    src: url("prstart.ttf");
+}
+
+div{
+  font-family: "PressStart";
+}
+
+#header{
+  float: none;
+  display: block;
+}
+
+body{
+  background-color: black;
+}
