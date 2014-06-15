@@ -28,12 +28,12 @@
 
 
 
-var startGame = function(lifeSize){
+var startGame = function(options){
   var Game = {
     alive: true,
     life: [],
     currentChoices: [],
-    lifeSize: lifeSize,
+    lifeSize: options[lifeSize],
     view: new GameView()
   }
 

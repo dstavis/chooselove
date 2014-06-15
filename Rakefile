@@ -132,10 +132,3 @@ task "console" do
 end
 
 task :default  => :spec
-
-# Added
-
-require 'sinatra/asset_pipeline/task'
-require './app'
-
-Sinatra::AssetPipeline::Task.define! App
