@@ -4,12 +4,14 @@ function GameView(options){
     startButton: "#start",
     box: ".box",
     holder: "#circumstances",
-    circumstance: ".circumstance"
+    circumstance: ".circumstance",
+    doneButton: "#done"
   }
   this.templates = {
     box: "#_box",
     circumstance: "#_circumstance"
   }
+
 }
 
 GameView.prototype = {
@@ -32,5 +34,18 @@ GameView.prototype = {
   },
   markChosen: function(circumstanceNode){
     circumstanceNode['data-chosen'] = 'true'
+  },
+  rapture: function(){
+    var chosen = []
+    var circumstances = $(this.selectors.circumstance)
+    for(index in circumstances){
+      if(circumstances[index]['data-chosen'] === 'true'){
+        // push some identifier to chosen that the game object can use to figure out which models to keep
+        chosen.push(circumstances[index])
+      }
+      else{
+        circumstances[index].remove()
+      }
+    }
   }
 }

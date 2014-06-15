@@ -10,9 +10,9 @@ function Game(options){
 Game.prototype = {
   start: function(){
     this.database.registerListener(this)
-    // while(this.alive){
+    while(this.alive){
       this.startTurn()
-    // }
+    }
   },
   startTurn: function(life, chosen){
     this.view.clearScreen()
@@ -33,5 +33,26 @@ Game.prototype = {
   },
   choose: function(e){
     this.view.markChosen(e.target)
+  },
+  markChosen: function(e){
+    var chosen = this.view.rapture()
+    var isChosen = false
+    for(var index in this.life){
+      for(var secondIndex in chosen){
+        if(this.life[index] === chosen[secondIndex]){
+          isChosen = true
+        }
+      }
+      if(isChosen){
+        this.life[index].choose()
+      }
+    }
+  },
+  cleanLife: function(){
+    for(var index in this.life){
+      if(this.life[index].chosen === false){
+        this.life.remove(index)
+      }
+    }
   }
 }
