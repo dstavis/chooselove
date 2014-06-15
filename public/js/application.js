@@ -1,3 +1,4 @@
 $(document).ready(function() {
-	startGame({lifeSize: 4})
+  var game = new Game({lifeSize: 4})
+	$('#start').on('click', game.start.bind(game))
 });

@@ -35,8 +35,16 @@
 
   <!-- JS
 	================================================== -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <!-- Libraries -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.4/handlebars.js"></script>
+  
+  <script src="/js/game_server.js"></script>
+  <script src="/js/game_view.js"></script>
+  <script src="/js/circumstance.js"></script>
+  <script src="/js/game.js"></script>
   <script src="/js/application.js"></script>
+
 </head>
 
 <body>
@@ -49,7 +57,13 @@
 </body>
 </html>
 
+<script type="text/x-handlebars-template" id="_box">
+  <div class="box">
+    <p>This is your life:</p>
+    <div id="circumstances"></div>
+  </div>
+</script>
 
-<script type="x-handlebars" name="_circumstance">
-  
+<script type="text/x-handlebars-template" id="_circumstance">
+  <span class="circumstance">{{description}}</span>
 </script>
