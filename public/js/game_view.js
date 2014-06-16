@@ -60,6 +60,7 @@ GameView.prototype = {
     return html
   },
   markChosen: function(circumstanceNode){
+    console.log('clicked')
     circumstanceNode.classList.add('chosen')
   },
   clearBox: function(){
