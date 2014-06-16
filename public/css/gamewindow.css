@@ -13,11 +13,17 @@
   border: 2px solid #cacaca;
   border-radius: 5px;
 
-  margin: 0 auto;
-  margin-top: 20%;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 10%;
+  margin-bottom: 10px;
 
-  height: 100px;
-  width: 500px;
+  min-height: 100px;
+  min-width: 500px;
 
-  padding: 5px;
+  padding: 10px;
+}
+
+.circumstance{
+  display: block;
 }
