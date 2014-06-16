@@ -18,11 +18,6 @@ gem 'rake'
 
 gem 'shotgun'
 
-# Added
-group :development do
-  gem 'sinatra-asset-pipeline'
-end
-
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
