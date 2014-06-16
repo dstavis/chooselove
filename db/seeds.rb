@@ -1,9 +1,9 @@
-file_path = ""
+file_path = "seed.csv"
 
 circumstances = []
 
 File.open(file_path).each do |line|
-  circumstance = line.split(',') #assumes the file is a .csv
+  circumstance = line.split(',').map{|item| item.chomp} #assumes the file is a .csv
   circumstance = {description: circumstance[0], icon: circumstance[1]}
   circumstances.push(circumstance)
 end
