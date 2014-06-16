@@ -5,26 +5,53 @@ function GameView(options){
     box: ".box",
     holder: "#circumstances",
     circumstance: ".circumstance",
-    doneButton: "#done"
+    nextButton: "#next",
+    doneButton: "#done",
+    messageHolder: "#messageHolder",
+    message: ".message",
+    turn: ".turn"
   }
   this.templates = {
     box: "#_box",
-    circumstance: "#_circumstance"
+    circumstance: "#_circumstance",
+    nextButton: "#_next",
+    doneButton: "#_done"
   }
 
 }
 
 GameView.prototype = {
-  clearScreen: function(){
+  clearStart: function(){
     $(this.selectors.startButton).remove()
   },
-  displayBox: function(){
+  showBox: function(){
     var box = this.makeNode(this.templates.box)
     $(this.selectors.window).append(box)
   },
-  drawCircumstance: function(circumstance){
+  showCircumstance: function(circumstance){
     var circumstanceNode = this.makeNode(this.templates.circumstance, circumstance)
     $(this.selectors.holder).append(circumstanceNode)
+  },
+  setTurn: function(turnNumber){
+    $(this.selectors.turn).text(turnNumber.toString())
+  },
+  showNextButton: function(){
+    var nextButton = this.makeNode(this.templates.nextButton)
+    $(this.selectors.window).append(nextButton)
+  },
+  showDoneButton: function(){
+    $(this.selectors.nextButton).remove()
+    var doneButton = this.makeNode(this.templates.doneButton)
+    $(this.selectors.window).append(doneButton)
+  },
+  showBadMessage: function(){
+    $(this.selectors.message).text("Choose what you don't want")
+  },
+  showGoodMessage: function(){
+    $(this.selectors.message).text("Choose what you want")
+  },
+  showWaitMessage: function(){
+    $(this.selectors.message).text("OK thanks. Please wait while we calculate more of your life...")
   },
   makeNode: function(selector, context){
     var source   = $(selector).html();
@@ -33,19 +60,12 @@ GameView.prototype = {
     return html
   },
   markChosen: function(circumstanceNode){
-    circumstanceNode['data-chosen'] = 'true'
+    circumstanceNode.classList.add('chosen')
   },
-  rapture: function(){
-    var chosen = []
-    var circumstances = $(this.selectors.circumstance)
-    for(index in circumstances){
-      if(circumstances[index]['data-chosen'] === 'true'){
-        // push some identifier to chosen that the game object can use to figure out which models to keep
-        chosen.push(circumstances[index])
-      }
-      else{
-        circumstances[index].remove()
-      }
-    }
+  clearBox: function(){
+    $(this.selectors.box).remove()
+  },
+  clearDone: function(){
+    $(this.selectors.doneButton).remove()
   }
 }
