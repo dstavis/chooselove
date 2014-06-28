@@ -1,0 +1,8 @@
+nesting
+variables
+functions (manage color)- lighten, darken, mix, alpha, hue, saturate
+
+compass (mixins)- drag & drop code
+
+try sass
+

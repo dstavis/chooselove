@@ -28,9 +28,9 @@ GameView.prototype = {
     var box = this.makeNode(this.templates.box)
     $(this.selectors.window).append(box)
   },
-  showCircumstance: function(circumstance){
-    var circumstanceNode = this.makeNode(this.templates.circumstance, circumstance)
+  showCircumstance: function(circumstanceNode){
     $(this.selectors.holder).append(circumstanceNode)
+    // circumstanceNode.on('click', this.choose.bind(this))
   },
   setTurn: function(turnNumber){
     $(this.selectors.turn).text(turnNumber.toString())
